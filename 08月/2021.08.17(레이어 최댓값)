@@ -1,0 +1,11 @@
+/*프로필 레이어*/
+			$(".section-container").on("click",".profileDetail-li", function() {
+				console.log("값이 들어옴")
+				var indexProfile = getmaxZ();
+				$(this).css("z-index", indexProfile + 1)
+			}) 
+      
+/* 최대 z-index 값 가져오기 */
+		getmaxZ = function() {
+			return Math.max.apply(null, $.map($('body > *'), function(e, n) { if ($(e).css('position') == 'absolute') return parseInt($(e).css('z-index')) || 1; }));
+		},
